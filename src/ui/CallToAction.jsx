@@ -3,7 +3,8 @@ import CallToActionLinks from "../components/CallToACtionLinks";
 import useFetch from "../hooks/useFetch";
 import { useShorten } from "../hooks/useShorten";
 
-const API_URL = "https://cleanuri.com/api/v1/shorten";
+const API_URL = "http://localhost:5000/api/shorten";
+
 
 const CallToAction = () => {
   const { post } = useFetch();
