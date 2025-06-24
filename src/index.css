@@ -78,9 +78,16 @@ a {
 
 .cta-input-container {
   background-color: var(--color-primary);
+  background-image: url("src/assets/images/bg-shorten-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   padding: var(--spacing-xlarge) var(--spacing-xxlarge);
   border-radius: var(--border-radius);
-  display: flex;
+}
+
+.cta-input-wrapper {
+    display: flex;
   gap: var(--spacing-small);
 }
 
@@ -94,4 +101,10 @@ a {
 .cta-input::placeholder {
     color: var(--color-secondary);
     opacity: 0.6;
+}
+
+.cta-error {
+  color: var(--color-secondary);
+  font-size: var(--font-size-xsmall);
+  margin-top: var(--spacing-small);
 }

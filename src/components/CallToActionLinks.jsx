@@ -1,27 +1,17 @@
 import Button from "./Button";
 import "../styles/CallToActionLinks.css";
 
-const CallToActionLinks = () => {
+const CallToActionLinks = ({ links }) => {
   return (
     <ul className="cta-links">
-      <li className="cta-link">
-        <p>Lengthy URL 1</p>
-        <div>
-          <a href="#">Shortened URL 1</a> <Button label="Copy" size="small" />
-        </div>
-      </li>
-      <li className="cta-link">
-        <p>Lengthy URL 2</p>
-        <div>
-          <a href="#">Shortened URL 2</a> <Button label="Copy" size="small" />
-        </div>
-      </li>
-      <li className="cta-link">
-        <p>Lengthy URL 3</p>
-        <div>
-          <a href="#">Shortened URL 3</a> <Button label="Copy" size="small" />
-        </div>
-      </li>
+      {links.map((link, index) => (
+        <li className="cta-link" key={index}>
+          <p>{link.original}</p>
+          <div>
+            <a href="#">{link.short}</a> <Button label="Copy" size="small" />
+          </div>
+        </li>
+      ))}
     </ul>
   );
 };
