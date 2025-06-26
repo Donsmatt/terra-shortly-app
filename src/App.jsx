@@ -9,11 +9,11 @@ function App() {
       <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>
         URL Shortener
       </h1>
+      <Hero />
       {/* <ShortenProvider>
         <CallToAction />
       </ShortenProvider>
       <Footer /> */}
-      <Hero/>
     </>
   );
 }

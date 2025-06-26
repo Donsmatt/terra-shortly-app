@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/hero.css";
+import Button from "./Button";
+import Boost from "./Boost";
 
 export default function Hero() {
   return (
@@ -17,7 +19,11 @@ export default function Hero() {
           <button className="hero-butt">Get Started</button>
         </div>
         <div className="hero-section">
-          <img className="hero-image" src="src/assets/images/illustration-working.svg" alt="images" />
+          <img
+            className="hero-image"
+            src="src/assets/images/illustration-working.svg"
+            alt="images"
+          />
         </div>
       </div>
     </div>
