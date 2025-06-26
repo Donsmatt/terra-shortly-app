@@ -42,20 +42,22 @@ const CallToAction = () => {
       <div className="cta">
         <div className="cta-input-container">
           <div className="cta-input-wrapper">
-            <input
-              type="text"
-              placeholder="Shorten a link here..."
-              className="cta-input"
-              value={state.link}
-              onChange={(e) => setLink(e.target.value)}
-            />
+            <div>
+              <input
+                type="text"
+                placeholder="Shorten a link here..."
+                className="cta-input"
+                value={state.link}
+                onChange={(e) => setLink(e.target.value)}
+              />
+              {state.error && <p className="cta-error">{state.error}</p>}
+            </div>
             <Button
               label="Shorten it!"
               variant="primary"
               onClick={() => handleShorten(state.link)}
             />
           </div>
-          {state.error && <p className="cta-error">{state.error}</p>}
         </div>
         <CallToActionLinks links={state.history} />
       </div>
