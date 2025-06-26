@@ -1,0 +1,161 @@
+
+$family-font: "Poppins", sans-serif;
+
+
+$bg: hsl(0, 0%, 75%);
+$bg2: hsl(257, 7%, 63%);
+$text: hsl(260, 8%, 14%);
+$text2: hsl(255, 11%, 22%);
+$color-primary: hsl(257, 27%, 26%);
+$color-white: hsl(0, 0%, 100%);
+$color-secondary: hsl(0, 87%, 67%);
+$color-accent: hsl(180, 66%, 49%);
+$color-accent-hover: hsl(180, 66%, 74%);
+$color-black: hsl(0, 0%, 0%);
+
+
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$pacing-large: 24px;
+$spacing-xlarge: 32px;
+
+
+$header-height: 72px;
+
+
+$sm: 37.5em;
+$md: 48em;
+$lg: 64em;
+$xl: 75em;
+
+@mixin breakpoint($point) {
+  @if $point == md {
+    @media (min-width: $md) {
+        @content;
+    }
+  }
+}
+
+.header {
+    height: var($header-height);
+    background: var($bg);
+    color: var($text);
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    // box-shadow: 0 1px 5px $color-primary;
+
+    &__content {
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: var($spacing-medium);
+      @include breakpoint(md) {
+        padding: 24px;
+      }
+      transition: 0.3s ease padding;
+
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      & > div {
+        flex: 1;
+        white-space: nowrap;
+
+        &:nth-child(2) {
+          display: flex;
+          justify-content: center;
+          height: 100%;
+        }
+        &:last-of-type {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+
+    &__button__container {
+      display: none;
+      // text-decoration: none;
+      @include breakpoint(md) {
+        display: initial;
+      }
+    }
+
+    &__toggler {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      @include breakpoint(md) {
+        display: none;
+      }
+      & > svg {
+        display: block;
+        font-size: 24px;
+        
+      }
+    }
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: var($color-black);
+}
+
+.nav {
+  width: 100%;
+  position: fixed;
+  top: $header-height;
+  right: -100%;
+  background: rgba($color-primary, 0.8);
+  color: $color-white; 
+  text-align: center;
+  padding: $spacing-medium 0;
+
+  &--open {
+    transition: 0.2s ease right;
+    right: 0;
+  }
+
+  &__item {
+    display: block;
+    padding: 16px;
+
+    text-decoration: none;
+    color: var(--color-text);
+
+    height: 100%;
+
+    transition: 0.3s ease color;
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  @include breakpoint(md) {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: initial;
+    width: auto;
+    padding: 0;
+
+    &__item {
+      padding: 0 $pacing-large;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
+  &__button__container {
+    @include breakpoint(md) {
+      display: none;
+    }
+    padding: $spacing-medium;
+  }
+}
+
+
