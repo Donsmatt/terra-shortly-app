@@ -3,13 +3,13 @@ import CallToActionLinks from "../components/CallToACtionLinks";
 import useFetch from "../hooks/useFetch";
 import { useShorten } from "../hooks/useShorten";
 
-const API_URL = "http://localhost:5000/api/shorten";
-
+const API_URL = import.meta.env.VITE_API_URL;
 
 const CallToAction = () => {
   const { post } = useFetch();
-  const { state, setError, setLoading, setShortenedLink, setLink } = useShorten();
-  
+  const { state, setError, setLoading, setShortenedLink, setLink } =
+    useShorten();
+
   const handleShorten = async (url) => {
     if (!url.trim()) {
       setError("Please enter a link to shorten.");
@@ -20,14 +20,18 @@ const CallToAction = () => {
 
     const { data, error: postError } = await post(
       API_URL,
-      new URLSearchParams({ url: state.link }),
+      JSON.stringify({ url: state.link }),
       {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json",
       }
     );
 
     if (postError || data?.error) {
-      setError(postError?.message || data?.error || "Failed to shorten the link. Try again.");
+      setError(
+        postError?.message ||
+          data?.error ||
+          "Failed to shorten the link. Try again."
+      );
     } else {
       setShortenedLink(data.result_url);
     }
