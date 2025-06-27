@@ -5,40 +5,51 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 
 const Header = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const menuToggler = () => setMenuOpen(p => !p);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className='header'>
-        <div className='header__content'>
-            <div>
-                <span className='logo'>Shortly</span>
-            </div>
-            <div>
-                <nav className={`nav ${menuOpen ? "nav--open" : ""}`}>
-                    <a className='nav__item' href={"/"}>Features</a>
-                    <a className='nav__item' href={"/"}>Pricing</a>
-                    <a className='nav__item' href={"/"}>Resources</a>
-                    <div className='nav__button__container'>
-                        <a href={"/"}>
-                            Login
-                        </a> 
-                        <Button label="Sign Up"/>
-                    </div>
-                </nav>
-            </div>
-            <div>
-                <div className='header__button__container'>
-                    <a>Login</a>
-                    <Button label="Sign Up"/>
-                </div>
-                <button className='header__toggler' onClick={menuToggler}>
-                    {!menuOpen ? <GiHamburgerMenu/> : <AiOutlineCloseSquare/>}
-                </button>
-            </div>
-        </div>
-    </div>
-  )
-}
+    <header className="header">
+      <div className="header-container">
+    
+        {/* Logo and Navigation */}
+        <div className="header-left">
+          <span className="logo">Shortly</span>
 
-export default Header
+          <nav className="nav">
+            <a href="/">Features</a>
+            <a href="/">Pricing</a>
+            <a href="/">Resources</a>
+          </nav>
+        </div>
+
+        {/* Right Side with Login and Sign Up */}
+        <div className="header-right">
+          <div className="nav-buttons">
+            <a href="/">Login</a>
+            <Button label="Sign Up" variant="secondary" />
+          </div>
+          <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <AiOutlineCloseSquare /> : <GiHamburgerMenu />}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="mobile-menu">
+            <nav className="mobile-nav">
+              <a href="/">Features</a>
+              <a href="/">Pricing</a>
+              <a href="/">Resources</a>
+              <div className="mobile-buttons">
+                <a href="/">Login</a>
+                <Button label="Sign Up" fullWidth variant="secondary"/>
+              </div>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+};
+
+export default Header;
