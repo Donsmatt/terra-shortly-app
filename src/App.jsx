@@ -10,10 +10,10 @@ function App() {
         URL Shortener
       </h1>
       <Hero />
-      {/* <ShortenProvider>
-        <CallToAction />
+      <ShortenProvider>
+      <CallToAction />
       </ShortenProvider>
-      <Footer /> */}
+      <Footer />
     </>
   );
 }
