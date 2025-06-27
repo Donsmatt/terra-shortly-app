@@ -1,17 +1,9 @@
-import Footer from "./components/Footer";
-import CallToAction from "./ui/CallToAction";
-import ShortenProvider from "./contexts/ShortenContext";
+import AdvanceStatistics from "./ui/AdvanceStatistics";
 
 function App() {
   return (
     <>
-      <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>
-        URL Shortener
-      </h1>
-      <ShortenProvider>
-        <CallToAction />
-      </ShortenProvider>
-      <Footer />
+      <AdvanceStatistics />
     </>
   );
 }
