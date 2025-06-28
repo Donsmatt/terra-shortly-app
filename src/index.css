@@ -46,7 +46,7 @@
 body {
   font-family: var(--font-family);
   color: var(--color-text);
-  background-color: var(--color-background);
+  /* background-color: var(--color-background); */
   font-size: var(--font-size-base);
 }
 
@@ -150,12 +150,12 @@ a {
   color: var(--color-white);
   font-size: var(--font-size-large);
 }
-
+/* 
 footer {
   position: relative;
   bottom: 0;
   width: 100vw;
-}
+} */
 
 .footer-container {
   display: flex;
